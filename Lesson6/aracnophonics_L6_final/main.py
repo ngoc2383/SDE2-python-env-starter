@@ -15,7 +15,7 @@ spiderList = [sd.spider_0, sd.spider_1, sd.spider_2, sd.spider_3, sd.spider_4, s
 
 
 #Print intro statements (welcome to game, etc)
-
+md.introduction()
 
 
 #generate a random word from word list
@@ -25,8 +25,24 @@ word = md.generate_word()
 
 #Game Loop
 while game: 
+  md.clear_screen()
   md.print_spider(tries,spiderList)
-
+  md.print_word(correct, word)
+  md.print_wrong_guesses(incorrect)
+  print()
+  guess = input('Guess a letter: ')
+  if md.is_guess_correct(guess, word):
+    correct.append(guess)
+    print('Correct guess!\n')
+  elif not md.is_guess_valid(guess):
+    print('Guess must be a single letter\n')
+  elif guess in correct or guess in incorrect:
+    print('Already guessed that')
+  else:
+    incorrect.append(guess)
+    print('Incorrect\n')
+    tries += 1
+    
   #This is where you'll call all of your functions. Just need to decide the proper order.
 
 

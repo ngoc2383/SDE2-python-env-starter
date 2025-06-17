@@ -28,7 +28,7 @@ def spider_1():
 
   #spider2
 def spider_2():
-  print(f"""
+  print("""
         - - - - - - - -
                |       
                |       
