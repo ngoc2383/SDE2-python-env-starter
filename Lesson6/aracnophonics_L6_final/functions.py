@@ -46,7 +46,21 @@ def generate_word():
 
 #Put the introduction code/input player name into here 
 def introduction():
+  print('------------------------')
+  print('WELCOME TO ARACNOPHONICS\n')
+
   name = input("Hello, what's your name? ")
   print(f'Welcome to the game, {name}!')
   print('Loading game...')
   time.sleep(2)
+
+def won_game(correct, word):
+  for letter in word:
+    if letter not in correct:
+      return False
+  return True
+
+def lost_game(incorrect):
+  if len(incorrect) >= 7:
+    return True
+  return False
