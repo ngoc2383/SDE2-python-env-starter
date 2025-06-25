@@ -42,6 +42,7 @@ def print_spider(tries,spiderList):
 def generate_word():
   wordList = open('Lesson6/aracnophonics_L6_final/words.txt').read().split()
   word = random.choice(wordList)
+  wordList.remove(word)
   return word
 
 #Put the introduction code/input player name into here 
