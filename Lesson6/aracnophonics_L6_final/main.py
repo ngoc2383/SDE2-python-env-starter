@@ -10,13 +10,14 @@ def play_game():
   md.introduction()
   #generate a random word from word list
   word = md.generate_word() 
-  
+  trials = 0
   while not md.won_game(correct, word) and not md.lost_game(incorrect): 
     md.clear_screen()
     md.print_spider(len(incorrect),spiderList)
     md.print_word(correct, word)
     md.print_wrong_guesses(incorrect)
-    print()
+    print(f'Trials: {trials}\n')
+
     guess = input('Guess a letter: ')
     if not md.is_guess_valid(guess):
       print('Guess must be a single letter\n')
@@ -29,12 +30,17 @@ def play_game():
       incorrect.append(guess.lower())
       print('Incorrect\n')
     
+    trials += 1
     if md.won_game(correct, word) or md.lost_game(incorrect):
       if md.won_game(correct, word):
+        md.clear_screen()
+        md.print_spider(len(incorrect),spiderList)
         md.print_word(correct, word)
-        print('You win!')
+        print('\nYou win!')
       elif md.lost_game(incorrect):
         print('Oh, no! The spider get you.\nGame Over.')
+      print(f'The word is: {word.upper()}')
+      print(f'It took you {trials} trials\n')
       play_again = input('Do you wanna play again?(y/n) ')
       return play_again.lower() == 'y'
       

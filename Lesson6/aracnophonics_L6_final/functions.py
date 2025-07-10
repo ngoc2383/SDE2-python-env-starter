@@ -53,7 +53,7 @@ def introduction():
   name = input("Hello, what's your name? ")
   print(f'Welcome to the game, {name}!')
   print('Loading game...')
-  time.sleep(2)
+  time.sleep(1.3)
 
 def won_game(correct, word):
   for letter in word:
